@@ -11,17 +11,17 @@ mermaid: true
 本篇文档将详细记录SkyRealm的谱面基本格式。  
 以下是一张示例谱面。本文将基于示例谱面进行解析。
 ```
-globalInfo:{'song':'SkyRealm', 'bpm':'120', 'artist':'Merithemm', 'background':'10001.jpg', 'audio':'10001.wav','difficulty':1, 'rate':10.0 'charter':'Merithemm'}
+globalInfo:{'song':'SkyRealm', 'bpm':'120', 'artist':'Merithemm', 'background':'10001.jpg', 'audio':'10001.wav','difficulty':1, 'rate':10.0, 'illustrator': 'Merithemm', 'charter':'Merithemm', 'preview':(0,15.0)}
 chartInfo:{'maxtrack':'4', 'offset':'100'}
-bpmList:[(120.0,'init'),(125.0,'10.12345'),(130.0,'20.54321')]
-speedList:[(1.4,'init'),(3,'10.12345'),(1.7,'20.54321')]
+bpmList:[(120.0,-1),(125.0,10.12345),(130.0,20.54321)]
+speedList:[(1.4,-1),(3,10.12345),(1.7,20.54321)]
 note:{
-    {'type':'tap', 'track':1, 'start':[1,1,4], 'speed':'1.0', 'isSpNote':'True'}
-    {'type':'drag', 'track':2, 'start':[1,2,4], 'speed':'1.0', 'isSpNote':'False'}
-    {'type':'hold', 'track':3, 'start':[1,2,4], 'end':[2,2,4], 'speed':'1.0', 'isSpNote':'False'}
+    {'type':'tap', 'track':1, 'start':[1,1,4], 'speed':1.0, 'isSpNote':'True'}
+    {'type':'drag', 'track':2, 'start':[1,2,4], 'speed':1.0, 'isSpNote':'False'}
+    {'type':'hold', 'track':3, 'start':[1,2,4], 'end':[2,2,4], 'speed':1.0, 'isSpNote':'False'}
 }
 event:{
-    {'object':'note', 'id':1, 'type':'changetrack(0.5,4,1)'}
+    {'object':'note', 'id':1, 'func':'changetrack(0.5,4,1)'}
 }
 ```
 
@@ -43,7 +43,9 @@ SkyRealm谱面最根节的元素称为父元素。以下是SkyRealm常有的父�
 | audio | 歌曲文件名 | String |
 | difficulty | 当前谱面在当前歌曲下的难度等级 | Int |
 | rate | 当前谱面实际定级 | Float |
+| illustrator | 曲绘作者 | String |
 | charter | 谱师 | String |
+| preview | 曲目预览段 | (a,b) a,b:Float |
 
 ### **chartInfo**
 记录谱面的游玩优化信息。这些信息仅会在游戏开始时读取。  
@@ -57,7 +59,7 @@ SkyRealm谱面最根节的元素称为父元素。以下是SkyRealm常有的父�
 ### **bpmList**
 记录谱面的 BPM 值。该元素会在游戏开始时被读取。  
 bpmList 元素记录格式为 `[(curbpm1, time1),(curbpm2, time2)]`。  
-其中，bpmList元素中第一项数据`(curbpm1,time1)`为谱面初始BPM值，也就是在刚刚进入游戏时的设定BPM值。第一项数据的`time`值为`String`类型，为`'init'`。**如果该歌曲全曲BPM没有变化，则bpmList有且仅有这一项初始数据。**  
+其中，bpmList元素中第一项数据`(curbpm1,time1)`为谱面初始BPM值，也就是在刚刚进入游戏时的设定BPM值。第一项数据的`time`值为`-1`。**如果该歌曲全曲BPM没有变化，则bpmList有且仅有这一项初始数据。**  
 如果该歌曲BPM有变化，则`(curbpm,time)`中`curbpm`对应目标BPM值，`time`对应变化时歌曲已播放的时间，单位为秒。  
 
 ### **speedList**
