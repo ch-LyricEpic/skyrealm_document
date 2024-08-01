@@ -11,7 +11,8 @@ mermaid: true
 本篇文档将详细记录SkyRealm的谱面基本格式。  
 以下是一张示例谱面。本文将基于示例谱面进行解析。
 ```
-globalInfo:{'song':'SkyRealm', 'bpm':'120', 'artist':'Merithemm', 'background':'10001.jpg', 'audio':'10001.wav','difficulty':1, 'rate':10.0, 'illustrator': 'Merithemm', 'charter':'Merithemm', 'preview':(0,15.0)}
+displayInfo:{'song_id':'SkyRealm'}
+globalInfo:{'difficulty':1, 'rate':10.4}
 chartInfo:{'maxtrack':'4', 'offset':'100'}
 bpmList:[(120.0,-1),(125.0,10.12345),(130.0,20.54321)]
 speedList:[(1.4,-1),(3,10.12345),(1.7,20.54321)]
@@ -30,22 +31,19 @@ SkyRealm谱面最根节的元素称为父元素。以下是SkyRealm常有的父�
 
 ## 父元素
 
+### **displayInfo**
+纪录songsList.json下當前的**song**元素。请注意该数值为动态加载，并不实际存在于谱面文件中。 
+
 ### **globalInfo**
-记录谱面的全局信息。这些全局信息一般在非游戏时就需要被读取。例如在选曲界面时需要展示歌名、作者和曲绘等信息，**所以这些参数就会在谱面开始前就被游戏读取。**  
+记录谱面的全局信息。
 一般情况下globalInfo包含以下参数：  
 
 | 参数名/ValueName | 参数描述/ValueDescription | 参数类型 |
 | :--------------------------- | :--------------- | ------: |
-| song | 歌曲名称 | String |
-| bpm | 歌曲全局BPM值 | String |
-| artist | 歌曲作者 | String |
-| background | 歌曲曲绘文件名 | String |
-| audio | 歌曲文件名 | String |
-| difficulty | 当前谱面在当前歌曲下的难度等级 | Int |
-| rate | 当前谱面实际定级 | Float |
-| illustrator | 曲绘作者 | String |
-| charter | 谱师 | String |
-| preview | 曲目预览段 | (a,b) a,b:Float |
+| difficulty | 当前谱面在当前歌曲下的难度等级(0/1/2/3) | Int |
+| rate | 当前谱面**实际**定级 | Float |
+
+在实际计算中请使用`globalInfo.rate`，而其他情况则可使用`displayInfo`。 
 
 ### **chartInfo**
 记录谱面的游玩优化信息。这些信息仅会在游戏开始时读取。  
