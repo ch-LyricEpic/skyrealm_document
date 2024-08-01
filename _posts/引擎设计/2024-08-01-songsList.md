@@ -32,6 +32,9 @@ mermaid: true
 | audio        | 歌曲路径  | String     |                                     档案路径 |
 | charter      | 谱师    | String     |                                          |
 | difficulties | 难度    | list[diff] |                                 一般列表长度为3 |
+| preview_start | 预览开始时间 | Float   |                            预览时间建议15s   |
+| preview_end | 预览结束时间 | Float   |                                            |
+
 
 ### diff
 
@@ -49,6 +52,9 @@ mermaid: true
 | illustration | 曲绘路径  | String |          档案路径，可选 |
 | illustrator  | 绘师    | String |               可选 |
 | audio        | 歌曲路径  | String |          档案路径，可选 |
+| preview_start | 预览开始时间 | Float   |   预览时间建议15s，可选 |
+| preview_end | 预览结束时间 | Float   |               可选 |
+
 
 ## 范例
 
@@ -65,6 +71,8 @@ mermaid: true
   "illustrator": "Khronetic",
   "audio": "reinvent.wav",
   "charter": "k//eternal",
+  "preview_start": 0,
+  "preview_end": 15,
   "difficulties": [
     {
       "type": 0,
@@ -103,6 +111,8 @@ mermaid: true
   "illustrator": "シエラ",
   "audio": "last.wav",
   "charter": "Arcaea",
+  "preview_start": 0,
+  "preview_end": 15,
   "difficulties": [
     {
       "type": 0,
