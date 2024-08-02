@@ -42,7 +42,8 @@ mermaid: true
 | 参数名          | 参数描述  | 参数类型   |               备注 |
 | :----------- | :------: | :-------: | ---------------: |
 | type         | 谱面难度  | Int    |          0/1/2/3 |
-| rating       | 谱面等级  | Int    |           歌曲显示难度 |
+| rating       | 谱面显示等级  | String |           歌曲显示难度 |
+| rating_actual | 谱面实际等级 | Float | 用于计算       | 
 | charter      | 谱师    | String |               可选 |
 | bpm          | 歌曲bpm | String | 同**song**的bpm，可选 |
 | artist       | 曲师    | String |               可选 |
@@ -72,15 +73,18 @@ mermaid: true
   "difficulties": [
     {
       "type": 0,
-      "rating": 2
+      "rating": "2",
+      "rating_actual": 2.5
     },
     {
       "type": 1,
-      "rating": 6
+      "rating": "6",
+      "rating_actual": 6.0
     },
     {
       "type": 2,
-      "rating": 8,
+      "rating": "8",
+      "rating_actual": 8.4,
       "charter": "k//eternal + nitro"
     }
   ]
@@ -111,19 +115,23 @@ mermaid: true
   "difficulties": [
     {
       "type": 0,
-      "rating": 4
+      "rating": "4",
+      "rating_actual": 4.0
     },
     {
       "type": 1,
-      "rating": 7
+      "rating": "7",
+      "rating_actual": 7.0
     },
     {
       "type": 2,
-      "rating": 9
+      "rating": "9",
+      "rating_actual": 9.1
     },
     {
       "type": 3,
-      "rating": 9,
+      "rating": "9",
+      "rating_actual": 9.1,
       "name": "Last | Moment",
       "illustration": "last_moment.png",
       "audio": "last_moment.wav"
@@ -139,3 +147,8 @@ mermaid: true
 `难度3`的rating为`9`;
 
 `难度4`的rating为`9`，曲名变为`Last | Moment`，曲绘及音频也有所改变。
+
+
+## 其他
+
+一般谱面加载路径为`songID.difficulty.chart`，例如`reinvent.0.chart` 
