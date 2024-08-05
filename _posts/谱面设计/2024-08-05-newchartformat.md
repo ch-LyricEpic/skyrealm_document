@@ -27,27 +27,27 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 
 ### chart.json
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | chartInfo | 谱面基本信息 | [`chartInfo`](#chartInfo) |
 | bpmList | 谱面bpm列表 | [`List[bpm]`](#bpm) |
 | lines | 谱面判定线列表 | [`List[line]`](#line) |
 
 ### chartInfo
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | song_id | 歌曲唯一ID | String |
 | offset | 谱面音频偏移(ms) | Float |
 | difficulty | 谱面难度等级 (0/1/2/3) | Int |
 
 ### bpm
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | bpm | 新bpm | Float |
 | time | 时间 | [`Time`](#time) |
 
 ### line
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | tracks | 判定轨道 | [`List[track]`](#track) |
 | segmentEvents | 判定线函数取样点数目事件 | [`List[genericEvent]`](#genericEvent) |
 | rotateEvents | 判定线旋转事件 | [`List[genericEvent]`](#genericEvent) |
@@ -57,7 +57,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 
 ### track
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | notes | notes列表 | [`List[Note]`](#note) |
 | slideEvents | 轨道偏移事件 | [`List[genericEvent]`](#genericEvent) |
 | fadeEvents | 轨道透明度事件 | [`List[genericEvent]`](#genericEvent) |
@@ -67,7 +67,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 
 只有当 `type` 为2时，`end` 才有效。
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | type | 0为tap, 1为drag, 2为hold, 3为beat | Int |
 | start | 击打时间 | [`Time`](#time) |
 | end | hold结束时间 | [`Time`](#time) |
@@ -80,7 +80,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 - **changeTrack**: 改变判定轨道。
 
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | type | 事件类型 | String |
 | start | 开始时间 | [`Time`](#time) |
 | end | 结束时间 | [`Time`](#time) |
@@ -92,14 +92,14 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 **genericEvent**分为两种，一种为瞬时设定，另一种为动画效果设定。
 
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | time | 事件时间 | [`Time`](#time) |
 | value | 事件数值 | Float |
 
 或
 
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | start | 开始时间 | [`Time`](#time) |
 | end | 结束时间 | [`Time`](#time) |
 | ease | 缓动 | Int |
@@ -108,7 +108,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 
 ### offsetEvent
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | start | 开始时间 | [`Time`](#time) |
 | end | 结束时间 | [`Time`](#time) |
 | ease | 缓动 | Int |
@@ -119,7 +119,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 
 ### functionEvent
 | 参数名 | 描述 | 类型 |
-| :- | :- | -: |
+| :--------- | :----------- | ---------: |
 | start | 开始时间 | [`Time`](#time) |
 | end | 结束时间 | [`Time`](#time) |
 | value | 函数 | [`function`](#function) |
