@@ -26,6 +26,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 {: .prompt-info }
 
 ### chart.json
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | chartInfo | 谱面基本信息 | [`chartInfo`](#chartInfo) |
@@ -33,6 +34,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 | lines | 谱面判定线列表 | [`List[line]`](#line) |
 
 ### chartInfo
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | song_id | 歌曲唯一ID | String |
@@ -40,12 +42,14 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 | difficulty | 谱面难度等级 (0/1/2/3) | Int |
 
 ### bpm
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | bpm | 新bpm | Float |
 | time | 时间 | [`Time`](#time) |
 
 ### line
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | tracks | 判定轨道 | [`List[track]`](#track) |
@@ -56,6 +60,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 | functionEvents | 判定线函数事件 | [`List[functionEvent]`](#functionEvent) |
 
 ### track
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | notes | notes列表 | [`List[Note]`](#note) |
@@ -66,6 +71,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 ### note
 
 只有当 `type` 为2时，`end` 才有效。
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | type | 0为tap, 1为drag, 2为hold, 3为beat | Int |
@@ -107,6 +113,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 | to | 数值结束 | Float |
 
 ### offsetEvent
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | start | 开始时间 | [`Time`](#time) |
@@ -118,6 +125,7 @@ time的格式为`[beat, nume, deno]`，其中beat为小节，nume为分子，den
 | toY | Y结束 | Float |
 
 ### functionEvent
+
 | 参数名 | 描述 | 类型 |
 | :--------- | :----------- | ---------: |
 | start | 开始时间 | [`Time`](#time) |
